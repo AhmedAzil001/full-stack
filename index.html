@@ -6,10 +6,12 @@
     <title>Todo App</title>
   </head>
   <script>
-    const title = document.querySelector("#title");
-    const author = document.querySelector("#author");
     function onPress() {
-      function responseData(data) {}
+      var title = document.querySelector("#title").value;
+      var author = document.querySelector("#author").value;
+      function responseData(data) {
+        console.log(data)
+      }
 
       function responseObject(res) {
         res.json().then(responseData);
@@ -18,8 +20,8 @@
       fetch("http://localhost:3000/todos", {
         method: "POST",
         body: JSON.stringify({
-          title: "jhvd",
-          author: "ajhvs",
+          title: title,
+          author: author,
         }),
         headers: {
           "Content-Type": "application/json",
@@ -29,7 +31,7 @@
   </script>
   <body>
     title
-    <input type="text" id="title" value="" />
+    <input type="text" id="title" />
     <br /><br />
     author
     <input type="text" id="author" />
