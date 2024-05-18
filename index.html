@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo App</title>
+  </head>
+  <script>
+    const title = document.querySelector("#title");
+    const author = document.querySelector("#author");
+    function onPress() {
+      function responseData(data) {}
+
+      function responseObject(res) {
+        res.json().then(responseData);
+      }
+
+      fetch("http://localhost:3000/todos", {
+        method: "POST",
+        body: JSON.stringify({
+          title: "jhvd",
+          author: "ajhvs",
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }).then(responseObject);
+    }
+  </script>
+  <body>
+    title
+    <input type="text" id="title" value="" />
+    <br /><br />
+    author
+    <input type="text" id="author" />
+    <br /><br />
+    <button onclick="onPress()">Post</button>
+  </body>
+</html>
